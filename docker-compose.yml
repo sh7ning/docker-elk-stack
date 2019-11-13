@@ -35,11 +35,6 @@ services:
             - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
         environment:
             - "LS_JAVA_OPTS=-Xms512m -Xmx512m"
-            - xpack.security.enabled=false
-            - xpack.monitoring.enabled=false
-            - xpack.graph.enabled=false
-            - xpack.watcher.enabled=false
-            - xpack.ml.enabled=false
         depends_on:
             - elasticsearch
 
