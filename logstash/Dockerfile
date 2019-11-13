@@ -1,7 +1,7 @@
 ARG ELK_VERSION
 
 # https://github.com/elastic/logstash-docker
-FROM docker.elastic.co/logstash/logstash:${ELK_VERSION}
+FROM docker.elastic.co/logstash/logstash-oss:${ELK_VERSION}
 
 ARG ELK_VERSION
 
