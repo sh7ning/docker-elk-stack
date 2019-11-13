@@ -13,6 +13,11 @@ discovery.type: single-node
 ## X-Pack settings
 ## see https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-xpack.html
 #
+xpack.security.enabled: false
+xpack.monitoring.enabled: false
+xpack.graph.enabled: false
+xpack.watcher.enabled: false
+xpack.ml.enabled: false
 
-#MAX_LOCKED_MEMORY: unlimited
-#bootstrap.memory_lock: true
+MAX_LOCKED_MEMORY: unlimited
+bootstrap.memory_lock: true

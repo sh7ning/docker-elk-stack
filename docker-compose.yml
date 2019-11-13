@@ -11,10 +11,15 @@ services:
         restart: always
         environment:
             - cluster.name=es01
-            - discovery.type=single-node
-            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
             - bootstrap.memory_lock=true
+            - discovery.type=single-node
             - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            - xpack.security.enabled=false
+            - xpack.monitoring.enabled=false
+            - xpack.graph.enabled=false
+            - xpack.watcher.enabled=false
+            - xpack.ml.enabled=false
         volumes:
             - ./runtime/elasticsearch/data:/usr/share/elasticsearch/data
         ports:
@@ -35,6 +40,11 @@ services:
             - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
         environment:
             - "LS_JAVA_OPTS=-Xms512m -Xmx512m"
+            - xpack.security.enabled=false
+            - xpack.monitoring.enabled=false
+            - xpack.graph.enabled=false
+            - xpack.watcher.enabled=false
+            - xpack.ml.enabled=false
         depends_on:
             - elasticsearch
 
@@ -52,6 +62,11 @@ services:
         environment:
             - elasticsearch.username=elastic
             - elasticsearch.password=${ELASTIC_PASSWORD}
+            - xpack.security.enabled=false
+            - xpack.monitoring.enabled=false
+            - xpack.graph.enabled=false
+            - xpack.watcher.enabled=false
+            - xpack.ml.enabled=false
         depends_on:
             - elasticsearch
 
