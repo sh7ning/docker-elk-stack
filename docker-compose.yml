@@ -15,11 +15,6 @@ services:
             - discovery.type=single-node
             - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
             - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-            - xpack.security.enabled=false
-            - xpack.monitoring.enabled=false
-            - xpack.graph.enabled=false
-            - xpack.watcher.enabled=false
-            - xpack.ml.enabled=false
         volumes:
             - ./runtime/elasticsearch/data:/usr/share/elasticsearch/data
         ports:
