@@ -15,8 +15,17 @@ filebeat.inputs:
     multiline.match: after
     tail_files: true #文件末尾开始读取
 
-output.redis:
-  hosts: ["192.168.3.92:6380"]
-  timeout: 5
-  key: "%{[fields.list]:lumen_log_list}"
-  datatype: "list"
+# output.redis:
+#   hosts: ["192.168.3.92:6380"]
+#   timeout: 5
+#   key: "%{[fields.list]:lumen_log_list}"
+#   datatype: "list"
+
+output.kafka:
+  hosts: ["192.168.3.92:9092"]
+  topic: 'log'
+  partition.round_robin:
+    reachable_only: false
+  required_acks: 1
+  compression: gzip
+  max_message_bytes: 1000000
