@@ -21,6 +21,9 @@ filebeat.inputs:
 #   key: "%{[fields.list]:lumen_log_list}"
 #   datatype: "list"
 
+# output.logstash:
+#   hosts: ["172.24.14.181:5044"]
+
 output.kafka:
   hosts: ["192.168.3.92:9092"]
   topic: 'log'
