@@ -30,6 +30,8 @@ services:
             args:
                 - ELK_VERSION=${ELK_VERSION}
         restart: always
+        extra_hosts:
+            - "kafka.log.com:${LOGSTASH_KAFKA_IP}"
         volumes:
             - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
             - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
