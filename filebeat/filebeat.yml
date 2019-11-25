@@ -25,7 +25,7 @@ filebeat.inputs:
 #   hosts: ["172.24.14.181:5044"]
 
 output.kafka:
-  hosts: ["192.168.3.92:9092"]
+  hosts: ["kafka.log.com:9092"]
   topic: 'log'
   partition.round_robin:
     reachable_only: false

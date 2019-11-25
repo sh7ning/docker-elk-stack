@@ -6,6 +6,8 @@ services:
     hostname: jetea-filebeat
     restart: always
     network_mode: host
+    extra_hosts:
+      - "kafka.log.com:${LOGSTASH_KAFKA_IP}"
     volumes:
       - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       - ${SITE_DIR}:/www:ro
