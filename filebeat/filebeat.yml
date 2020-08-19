@@ -7,6 +7,12 @@ filebeat.inputs:
       - /www/monitor/storage/logs/*.log
     encoding: utf-8
     scan_frequency: 10s
+    backoff: 1s
+    close_inactive: 30m
+    json.add_error_key: true
+    clean_removed: true
+    ignore_older: 24h
+    clean_inactive: 25h
     tags: ["filebeat", "lumen_log", "mm"]
     fields:
       list: "lumen_log_list"
